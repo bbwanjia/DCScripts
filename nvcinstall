@@ -1,0 +1,30 @@
+#!usr/local/bin/python
+
+import os
+from sys import argv
+
+
+PLUGPATH = "/Users/liujingyu/.config/nvim/lua/plugins/"
+
+listall = os.listdir(PLUGPATH)
+
+if len(argv) != 2:
+    print("Wrong number of arguments.")
+    exit(1)
+
+name = argv[1]
+
+filename = name.split("/")[1]
+filename = filename.replace(".", "-") + ".lua"
+
+if filename in listall:
+    print("Already installed!")
+    exit(1)
+
+if input(f"Sure to install {name} and create lua file {filename}?").lower() == "y":
+    # install
+    with open(os.path.join(PLUGPATH, filename), "w") as f:
+        f.write('return {"' + name + '"}\n')
+    print("Lua file created", filename)
+else:
+    print("Unconfirmed.")
