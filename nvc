@@ -20,15 +20,13 @@ if __name__ == "__main__":
         print(*listdir("/Users/liujingyu/.config/nvim/lua/plugins"), sep="\t\t")
         exit(0)
     color = argv[1]
-    with open("/Users/liujingyu/.config/nvim/init.lua", "w") as f:
-        f.write(
-            """-- bootstrap lazy.nvim, LazyVim and your plugins
-require("config.lazy")
-
-vim.opt.termguicolors = true
-vim.cmd.colorscheme("$$$$")
-""".replace("$$$$", color)
-        )
+    with open("/Users/liujingyu/.config/nvim/init.lua", "r") as lua:
+        lines = lua.readlines()
+    for i, l in enumerate(lines):
+        if l.startswith("vim.cmd.colorscheme"):
+            lines[i] = f'vim.cmd.colorscheme("{color}")\n'
+    with open("/Users/liujingyu/.config/nvim/init.lua", "w") as lua:
+        lua.writelines(lines)
 
     print("Color scheme changed to", color)
     system("nvim")
