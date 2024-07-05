@@ -14,3 +14,4 @@ list of file names corresponding to their function
 - `help` = list all aliases in `.bash_profile`.
 - `nvc` = change neovim color scheme.
 - `nvcinstall` = install new color schemes by creating lua files.
+- `donchee-theme.css` = the theme Don Chee used for markdown.
