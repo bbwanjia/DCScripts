@@ -9,7 +9,7 @@
 html,
 body,
 #write {
-    font-family: 'CMU Serif', 'SimSong';
+    font-family: 'Roboto', 'SimSong';
 }
 
 h1,
@@ -18,7 +18,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'CMU Sans Serif', 'Libian SC', 'LibianTC';
+    font-family: 'Arial', 'Libian SC', 'LibianTC';
 }
 
 h1 {
@@ -88,6 +88,7 @@ code,
 .sourceCode {
     font-size: 0.9rem;
     background: #f2a2a2;
+    font-family: "CaskaydiaMono Nerd Font Mono";
 }
 
 .md-fences,
@@ -105,6 +106,7 @@ blockquote {
     margin: 2rem .2rem;
     padding: .3rem .5rem;
     border-left: .4rem solid gray;
+    font-family: "Bodoni 72";
 }
 
 blockquote p {
