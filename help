@@ -1,14 +1,14 @@
-#!/usr/local/bin/python 
+#!/usr/local/bin/python3 
 
 # this python file iterates through the `.bash_profile`
 # file to get all alias. it then prints out all the 
 # available alias defined.
 
-with open("/Users/liujingyu/.bash_profile", "r") as bash_profile:
-  raw = bash_profile.readlines()
+with open("/Users/jingyuliu/.zprofile", "r") as z_profile:
+  raw = z_profile.readlines()
 
 if __name__ == "__main__":
-    print("\033[1;95mALIAS FROM $HOME/.bash_profile\033[0m")
+    print("\033[1;95mALIAS FROM .z_profile\033[0m")
     for line in raw:
         if line.startswith("alias"):
             useful = line[6:].strip()
