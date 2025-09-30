@@ -17,15 +17,15 @@ if __name__ == "__main__":
         print()
         print(*listdir("/usr/share/vim/vim90/colors"), sep="\t\t")
         print()
-        print(*listdir("/Users/liujingyu/.config/nvim/lua/plugins"), sep="\t\t")
+        print(*listdir("/Users/jingyuliu/.config/nvim/lua/plugins"), sep="\t\t")
         exit(0)
     color = argv[1]
-    with open("/Users/liujingyu/.config/nvim/init.lua", "r") as lua:
+    with open("/Users/jingyuliu/.config/nvim/init.lua", "r") as lua:
         lines = lua.readlines()
     for i, l in enumerate(lines):
         if l.startswith("vim.cmd.colorscheme"):
             lines[i] = f'vim.cmd.colorscheme("{color}")\n'
-    with open("/Users/liujingyu/.config/nvim/init.lua", "w") as lua:
+    with open("/Users/jingyuliu/.config/nvim/init.lua", "w") as lua:
         lua.writelines(lines)
 
     print("Color scheme changed to", color)

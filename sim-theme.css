@@ -1,0 +1,224 @@
+/* latexlike.css — Typora theme to approximate LaTeX typesetting
+   Place in Typora themes directory, then select it in Preferences -> Appearance.
+*/
+
+/* =========================
+   Theme variables & base
+   ========================= */
+:root{
+  --base-font-size: 18px;           /* adjust to taste */
+  --line-height: 1.28;
+  --measure: 70ch;                  /* comfortable measure, like book */
+  --body-margin: 36px;
+  --heading-weight: 600;
+  --heading-color: #111;
+  --para-indent: 1.5em;             /* first-line indent */
+  --para-spacing: 0.9em;            /* space between paragraphs (less than indent) */
+  --code-font-size: 1em;
+  --accent: #0b5cff;
+}
+
+/* -------------------------
+   Font stack (install fonts described below)
+   ------------------------- */
+body, .content, .typora-export-content{
+  font-family: "Latin Modern Roman", "CMU Serif", "TeX Gyre Termes", "Times New Roman", Georgia, serif;
+  font-size: var(--base-font-size);
+  line-height: var(--line-height);
+  color: #111;
+  background: #ffffff;
+  margin: var(--body-margin);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  max-width: none;
+}
+
+/* monospace */
+code, pre, .code {
+  font-family: "Latin Modern Mono", "CMU Typewriter Text", "TeX Gyre Cursor", "Courier New", monospace;
+  font-size: var(--code-font-size);
+}
+
+/* math elements (MathJax / KaTeX) */
+.katex, .MathJax, .math, .math.display {
+  font-family: "Asana Math", "TeX Gyre Termes Math", "STIX Two Math", "Cambria Math", serif;
+  font-size: 1.02em;  /* slightly larger for readability */
+  line-height: 1.15;
+}
+
+/* =========================
+   Layout / measure
+   ========================= */
+.typora-export-content, .content {
+  max-width: var(--measure);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Paragraph styling: indent first line, small gap between paras */
+.content p {
+  text-indent: var(--para-indent);
+  margin-top: 0;
+  margin-bottom: var(--para-spacing);
+  orphans: 2;
+  widows: 2;
+  text-align: justify;  /* gives classic book feel */
+}
+
+/* Remove indent after headings, lists, blockquotes, code blocks and tables */
+.content h1 + p,
+.content h2 + p,
+.content h3 + p,
+.content h4 + p,
+.content ul + p,
+.content ol + p,
+.content blockquote + p,
+.content pre + p,
+.content table + p {
+  text-indent: 0;
+}
+
+/* =========================
+   Headings like LaTeX article/book
+   ========================= */
+.content h1, .content h2, .content h3, .content h4 {
+  font-family: "Latin Modern Roman", "CMU Serif", serif;
+  color: var(--heading-color);
+  font-weight: var(--heading-weight);
+  margin-top: 1.2em;
+  margin-bottom: 0.7em;
+  text-indent: 0;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+}
+
+/* Sizes roughly similar to book classes */
+.content h1 { font-size: 1.8em; }
+.content h2 { font-size: 1.4em;}
+.content h3 { font-size: 1.15em;}
+.content h4 { font-size: 1.0em;}
+
+/* =========================
+   Blockquote (LaTeX quote style)
+   ========================= */
+.content blockquote {
+  margin: 0.8em 0;
+  padding-left: 1em;
+  border-left: 3px solid #ddd;
+  color: #333;
+  font-style: italic;
+  background: rgba(0,0,0,0.01);
+}
+
+/* =========================
+   Code and pre (typewriter feel)
+   ========================= */
+.content pre {
+  padding: 0.9em;
+  background: #f7f7f7;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  overflow: auto;
+  margin: 0.8em 0;
+}
+.content code {
+  background: #f3f3f3;
+  padding: 0.08em 0.28em;
+  border-radius: 4px;
+}
+
+/* =========================
+   Inline math & display math blocks
+   ========================= */
+.content .math.inline, .katex .katex-html {
+  /* Inline math blends with text: use slightly smaller size & no indent */
+  vertical-align: baseline;
+}
+.content .math.display, .math-block {
+  display: block;
+  text-align: center;
+  margin: 1.1em 0;
+  font-size: 1.05em;
+}
+
+/* display equations get gentle boxlike spacing */
+.content .math.display .katex, .content .math-block .katex {
+  padding: 0.25em 0.25em;
+}
+
+/* =========================
+   Tables — “booktabs” style
+   ========================= */
+.content table {
+  border-collapse: collapse;
+  margin: 0.9em 0;
+  width: auto;
+  max-width: 100%;
+  font-size: 0.95em;
+  text-indent: 0;
+}
+.content table th,
+.content table td {
+  padding: 0.55em 0.85em;
+  border-bottom: 1px solid #ddd;
+  vertical-align: middle;
+}
+.content table thead th {
+  border-bottom: 2px solid #bbb;
+  font-weight: 600;
+}
+.content table tr:last-child td {
+  border-bottom: none;
+}
+.content table caption {
+  caption-side: top;
+  font-style: italic;
+  color: #444;
+  padding-bottom: 0.4em;
+}
+
+/* small caps-ish numeric tables */
+.content table td.number, .content table th.number {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* =========================
+   Figures / images (LaTeX-like)
+   ========================= */
+.content img {
+  display: block;
+  margin: 0.7em auto;
+  max-width: 100%;
+  box-shadow: none;
+  border-radius: 3px;
+}
+
+/* =========================
+   Footnotes & references
+   ========================= */
+.note, .footnote {
+  font-size: 0.85em;
+  color: #444;
+  border-top: 1px dashed #eee;
+  padding-top: 0.6em;
+}
+
+/* =========================
+   Small helper: monospace display for listings
+   ========================= */
+.kv, pre.sourceCode {
+  font-family: "Latin Modern Mono", monospace;
+}
+
+/* =========================
+   Accessibility & print tweaks
+   ========================= */
+@media print {
+  body { color: #000; background: #fff; }
+  .content { max-width: 100%; margin: 0; }
+}
+
+/* =========================
+   End of theme
+   ========================= */

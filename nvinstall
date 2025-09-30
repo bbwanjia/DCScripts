@@ -4,7 +4,7 @@ import os
 from sys import argv
 
 
-PLUGPATH = "/Users/liujingyu/.config/nvim/lua/plugins/"
+PLUGPATH = "/Users/jingyuliu/.config/nvim/lua/plugins/"
 
 listall = os.listdir(PLUGPATH)
 
