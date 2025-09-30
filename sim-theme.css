@@ -14,7 +14,7 @@
   --heading-color: #111;
   --para-indent: 1.5em;             /* first-line indent */
   --para-spacing: 0.9em;            /* space between paragraphs (less than indent) */
-  --code-font-size: 1em;
+  --code-font-size: 0.9em;
   --accent: #0b5cff;
 }
 
